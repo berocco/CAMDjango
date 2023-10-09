@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} História{% endblock %}
+{% block nav %}
+{% include 'nav_index.html' %}
+{% endblock %}
+{% block content %}
+<section id="about-us" class="space section-bg section2">
+    <div class="row middle-xs center-xs align-items-center">
+
+        <div class="col-md-6" data-aos="fade-right">
+          <h2>Fundação</h2>
+          <p>
+            O CAM foi fundado oficialmente no dia 28 de Novembro de 1990,
+             porém sua história vem de mais longe do que isso.
+             Desde o início da Escola Politécnica, existiam entidades acadêmicas, 
+             porém isso não era comum a todos os cursos, até que na década de 50 
+             um dos primeiros centros acadêmicos foi fundado, a Associação de Engenharia Mecânica (AEM), 
+             esta associação perdurou por bastante tempo até que na década de 60, eles se juntaram com o 
+             Centro de Engenharia de Produção (CAEP), formando assim o Centro de Produção Mecânica (CPM). 
+             Essa parceria durou até 1987 onde ocorreu a separação do CPM, onde aí sim surgiu o CAM, 
+             o Centro Acadêmico Mecânica, sendo que foi realmente registrado em 1990.
+          </p>
+        </div>
+        <div class="col-md-5" data-aos="fade-left">
+          <img src="{% static '/img/WhatsApp Image 2021-04-03 at 16.18.30.jpeg' %}" height="300vh" class="img-hist"/>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+{% endblock %}

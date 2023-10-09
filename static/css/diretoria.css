@@ -1,0 +1,58 @@
+/*--------------------------------------------------------------
+# Diretoria
+--------------------------------------------------------------*/
+.diretoria .diretoria-item {
+    box-sizing: content-box;
+    padding: 40px;
+    height: 225px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    background: #fff;
+    
+  }
+
+  
+  
+  .diretoria .diretoria-item .diretoria-img {
+    width: 90px;
+    border: 6px solid #fff;
+    float: left;
+    margin: 0 10px 0 0;
+  }
+  
+  .diretoria .diretoria-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+    color: #111;
+  }
+  
+  .diretoria .diretoria-item h4 {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+  }
+  
+  .diretoria .diretoria-item .quote-icon-left, .diretoria .diretoria-item .quote-icon-right {
+    color: #dddddd;
+    font-size: 26px;
+  }
+  
+  .diretoria .diretoria-item .quote-icon-left {
+    display: inline-block;
+    left: -5px;
+    position: relative;
+  }
+  
+  .diretoria .diretoria-item .quote-icon-right {
+    display: inline-block;
+    right: -5px;
+    position: relative;
+    top: 10px;
+  }
+  
+  .diretoria .diretoria-item p{
+    font-style: italic;
+    margin: 15px 0 0 0;
+    padding: 0;
+  }

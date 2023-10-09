@@ -1,0 +1,89 @@
+.about-us{
+    height: auto;
+    text-align: center;
+}
+.about-us-footer{
+    height: auto;
+
+}
+.img-integra {
+    height: 90vw;
+}
+body{
+    text-align: center;
+}
+.space {
+    padding: 2em;
+}
+.img-hist{
+    height: 45vw;
+}
+.section-title{
+    padding: 1rem 0px;
+
+}
+.diretoria .diretoria-item {
+    height: auto;
+    
+}
+.diretoria .diretoria-item .diretoria-img{
+    float: none;
+
+}
+section{
+    padding:2rem 0.5rem;
+}
+.carousel-item{
+    background-size: 0vh;
+    height: 10rem;
+    width: 100%;
+}
+
+#hero{
+    height: 10rem;
+}
+#hero .btn-get-started{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    text-decoration: none;
+}
+#hero .btn-get-started:hover{
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    text-decoration: none;
+}
+.mobile{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.welcome{
+    
+    display: block;
+    background: rgba(4, 4, 4, 0.5);
+    padding: 0.3rem;
+    color: #fff;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    border-top: 0.3rem solid #9f0000;
+    text-align: center;
+}
+.welcome h2{
+    font-size: 1rem;
+}
+.section-title h2 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-transform: uppercase;    
+    position: relative;
+}
+.about-us .content h2 {
+    display: none;
+}

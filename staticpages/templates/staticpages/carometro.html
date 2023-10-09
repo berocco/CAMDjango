@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Carômetro{% endblock %}
+{% block nav %}
+{% include 'nav_index.html' %}
+{% endblock %}
+{% block content %}
+    <main id="main">
+
+    <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title" >
+          <h2> <strong>Gestão CAMadas 2023</strong></h2>
+          <p>
+            </p>
+        </div>
+        <div class="row">
+        {% for membro in membro_list %}
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="1">
+              <div class="member-img">
+                <img src="{{ membro.imagem.url }}" class="img-fluid" alt="">
+                <div class="social">
+                    <a href="{{ membro.facebook }}"><i class="icofont-facebook"></i></a>
+                    <a href="{{ membro.instagram }}"><i class="icofont-instagram"></i></a>
+                    <a href="{{ membro.linkedin }}"><i class="icofont-linkedin"></i></a>  
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{ membro.nome }}</h4>
+                <span>{{ membro.cargo }}</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script>document.getElementsByTagName("html")[0].className += " js";</script>
+      <link rel="stylesheet" href="{% static 'semov/assets/css/style.css' %}">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Semov | Cronograma</title>
+      <!-- core CSS -->
+      <link href="{% static 'semov/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/bootstrap-social.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/font-awesome.min.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/animate.min.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/owl.carousel.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/owl.transitions.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/prettyPhoto.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/main.css' %}" rel="stylesheet">
+      <link href="{% static 'semov/css/responsive.css' %}" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/brands.css" integrity="sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh" crossorigin="anonymous">
+      <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      <![endif]-->       
+      <link rel="shortcut icon" href="{% static 'semov/images/ico/favicon.ico' %}">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'semov/images/ico/apple-touch-icon-144-precomposed.png' %}">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'semov/images/ico/apple-touch-icon-114-precomposed.png' %}">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'semov/images/ico/apple-touch-icon-72-precomposed.png' %}">
+      <link rel="apple-touch-icon-precomposed" href="{% static 'semov/images/ico/apple-touch-icon-57-precomposed.png' %}">
+   </head>
+   <!--/head-->
+   <body id="home" class="homepage" style="padding-top:0px;">
+      <header id="header">
+         <nav id="main-menu" class="navbar navbar-default " role="banner">
+             <div class="container">
+              <div class="row justify-content-center">
+                <div class="navbar-header" style="display: flex; justify-content: center;" >
+                   <a class="navbar-brand" style="display: flex; justify-content: center;"  href="{% url 'semov_index' %}"><img src="{% static 'semov/images\Logo_Semov_sem_gear.png' %}" alt="logo" class="logo"></a>
+                </div>   
+               <div class="txtbox">
+               <h6 style="transform: translateX(-10rem)">Cronograma da Semana</h6>
+               </div>
+                       
+             </div>
+             </div><!--/.container-->
+         </nav><!--/nav-->
+     </header><!--/header-->
+      
+      
+      <div class="bgimage">
+         <!--Habilitar quando estiver disponível-->
+         <div class="container">
+            <div class="row" style="display: flex; justify-content: center; padding-top: 1em; padding-bottom: 1em;">
+               <div class="botao">
+                  <a class="btn btn-primary btn-lg btn-block" href='https://www.sympla.com.br/evento/x-semov-semana-de-engenharia-de-movimento/1748854?qrcode=true&fbclid=IwAR0Riy5N2fh-sN3sWBVFeWcc83X7PzthSLVVUpDgqp8a9uuamZcR1TIOAL8' target="_blank"><span class="fa fa-calendar"></span>    Inscreva-se</a>                  
+                  </div>
+            </div>
+       </div>
+         
+     </section>
+          <div class="cd-schedule cd-schedule--loading js-cd-schedule">
+             <div class="cd-schedule__timeline">
+                <ul>
+                   <li><h7><span>11:00</span></h7></li>
+                   <li><h7><span>11:30</span></h7></li>
+                   <li><h7><span>12:00</span></h7></li>
+                   <li><h7><span>12:30</span></h7></li>
+                   <li><h7><span>13:00</span></h7></li>
+                   <li><h7><span>13:30</span></h7></li>
+                   <li><h7><span>14:00</span></h7></li>
+                   <li><h7><span>14:30</span></h7></li>
+                   <li><h7><span>15:00</span></h7></li>
+                   <li><h7><span>15:30</span></h7></li>
+                   <li><h7><span>16:00</span></h7></li>
+                   <li><h7><span>16:30</span></h7></li>
+                   <li><h7><span>17:00</span></h7></li>
+                   <li><h7><span>17:30</span></h7></li>
+                   <li><h7><span>18:00</span></h7></li>
+                   <li><h7><span>18:30</span></h7></li>
+                   <li><h7><span>19:00</span></h7></li>
+                   <li><h7><span>19:30</span></h7></li>
+                   <li><h7><span>20:00</span></h7></li>
+                   <li><h7><span>20:30</span></h7></li>
+                   <li><h7><span>21:00</span></h7></li>
+                </ul>
+             </div>
+             
+             <!-- .cd-schedule__timeline -->
+             <div class="cd-schedule__events">
+                <ul>
+                  {% for data in datas %}
+                   <li class="cd-schedule__group">
+                      <div class="cd-schedule__top-info"><h7><span>{{ data.dia_da_semana }} {{ data.dia|date:"d/m" }}</span></h7></div>
+                      <ul>
+                        {% for evento in data.evento_set.all %}
+                        <li class="cd-schedule__event" style="background-color: red;">
+                           <a data-start="{{ evento.hora_inicio }}" data-end="{{ evento.hora_fim }}" data-content="{{ evento.titulo }}" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">{{ evento.tipo }}</em>
+                      {{ evento.titulo }}
+                           </a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                   </li>
+                   {% endfor %}
+                  </ul>
+             </div>
+                        <!--<li class="cd-schedule__event" style="background-color: red;">
+                           <a data-start="16:30" data-end="18:30" data-content="weg1" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">PALESTRA</em>
+                      WEG - O impacto do 5G na jornada da Industria 4.0
+                           </a>
+                        </li>
+                      </ul>
+                   </li>
+                   <li class="cd-schedule__group">
+                      <div class="cd-schedule__top-info"><h7><span>Terça 18/10</span></h7></div>
+                      <ul>
+                        <li class="cd-schedule__event">
+                           <a data-start="11:00" data-end="13:00"  data-content="across" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">WORKSHOP</em>
+                           Across - WorkShop Processo Seletivo
+                           </a>
+                        </li>
+                        <li class="cd-schedule__event">
+                           <a data-start="15:00" data-end="16:30"  data-content="btc" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">PALESTRA</em>
+                           BTC - Processo seletivo no mercado financeiro
+                           </a>
+                        </li>
+                        <li class="cd-schedule__event">
+                           <a data-start="16:30" data-end="18:30"  data-content="solvay" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">PALESTRA</em>
+                           Solvay - Aplicações de polímeros especiais em aeronaves
+                           </a>
+                        </li>
+                      </ul>
+
+                   </li>
+                   <li class="cd-schedule__group">
+                      <div class="cd-schedule__top-info"><h7><span>Quarta 19/10</span></h7></div>
+                      <ul>
+                        <li class="cd-schedule__event">
+                           <a data-start="11:00" data-end="13:00"  data-content="weg2" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">PALESTRA</em>
+                           WEG - A fronteira da engenharia mecânica na inovação da indústria de bens de capital, cases práticos.
+                           </a>
+                        </li>
+                         
+                         <li class="cd-schedule__event">
+                            <a data-start="16:30" data-end="18:30" data-content="tenaris" data-event="event-1" href="#0">
+                            <em class="cd-schedule__name">PALESTRA</em>
+                            Tenaris - Competências técnicas e comportamentais e sua aplicação em uma empresa metalúrgica multinacional.                    
+                           </a>
+                         </li>
+                      </ul>
+                   </li>
+                   <li class="cd-schedule__group">
+                      <div class="cd-schedule__top-info"><h7><span>Quinta 20/10</span></h7></div>
+                      <ul>
+                        <li class="cd-schedule__event">
+                           <a data-start="11:00" data-end="13:00"  data-content="bcg" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">PALESTRA</em>
+                           BCG - Consultoria
+                           </a>
+                        </li>
+                        <li class="cd-schedule__event">
+                           <a data-start="15:00" data-end="16:30"  data-content="gm" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">PALESTRA</em>
+                           GM - Desenvolvimento virtual da nova Montana
+                           </a>
+                        </li>
+                      </ul>
+                   </li>
+                   <li class="cd-schedule__group">
+                      <div class="cd-schedule__top-info"><h7><span>Sexta 21/10</span></h7></div>
+                      <ul>
+                        <li class="cd-schedule__event">
+                           <a data-start="11:00" data-end="13:00"  data-content="tractian2" data-event="event-1" href="#0">
+                           <em class="cd-schedule__name">VISITA TÉCNICA</em>
+                           VT - Tractian
+                           </a>
+                        </li>
+                      </ul>
+                   </li>
+                </ul>
+             </div>
+              -->
+             <div class="cd-schedule-modal">
+                <header class="cd-schedule-modal__header">
+                   <div class="cd-schedule-modal__content">
+                      <span class="cd-schedule-modal__date"></span></h7>
+                      <h3 class="cd-schedule-modal__name"></h3>
+                   </div>
+                   <div class="cd-schedule-modal__header-bg"></div>
+                </header>
+                <div class="cd-schedule-modal__body">
+                   <div class="cd-schedule-modal__event-info"></div>
+                   <div class="cd-schedule-modal__body-bg"></div>
+                </div>
+                <a href="#0" class="cd-schedule-modal__close text-replace">Close</a>
+             </div>
+             <div class="cd-schedule__cover-layer"></div>
+             
+             
+          
+            
+          <!-- .cd-schedule -->
+      </div>
+      
+      
+      <footer id="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4">
+                  &copy; 2022 Semov. Todos os direitos reservados.
+               </div>
+               <div class="col-sm-5 text-left">
+               </div>
+               <div class="col-sm-2">
+                  <ul class="social-icons">
+                    <li><a href="https://www.facebook.com/semovpoliusp/"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/semov.poliusp/"><i class="fab fa-instagram"></i></a></li>
+					     <li><a href="https://www.linkedin.com/company/semov"><i class="fab fa-linkedin-square"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <script src="{% static 'semov/assets/js/util.js' %}"></script> <!-- util functions included in the CodyHouse framework -->
+      <script src="{% static 'semov/assets/js/main.js' %}"></script>
+      <!--/#footer-->
+      
+        
+   </body>
+</html>

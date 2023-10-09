@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Semov | {% block title %} {% endblock %}</title>
+	<!-- core CSS -->
+
+ 
+    <link href="{% static 'semov/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/Carrosel.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/bootstrap-social.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/owl.transitions.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/prettyPhoto.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'semov/css/texto_angular.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/brands.css" integrity="sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh" crossorigin="anonymous">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+
+    <link rel="shortcut icon" href="{% static 'semov/images/ico/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'semov/images/ico/apple-touch-icon-144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'semov/images/ico/apple-touch-icon-114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'semov/images/ico/apple-touch-icon-72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'semov/images/ico/apple-touch-icon-57-precomposed.png' %}">
+    <link href="{% static 'semov/css/mobile.css' %}" rel="stylesheet" media="screen and (max-width:600px)">
+</head><!--/head-->
+
+<body id="home" class="homepage">
+    <header id="header">
+            <nav id="main-menu" class="navbar navbar-default" role="banner">
+                <div class="container">
+                 <div class="row row1 justify-content-center">
+                   <div class="col-xs-3 navbar-header">
+                      <a class="navbar-brand" href="{% url 'semov_index' %}"><img src="{% block logo %}{% endblock %}" alt="logo" class="logo"></a>
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                      </button>
+                   </div>
+                {% block nav %}
+                {% endblock %}
+				</div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+        
+    </header><!--/header-->
+{% block content %}
+{% endblock %}
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    &copy; 2022 Semov. Todos os direitos reservados.
+                </div>
+                <div class="col-sm-5 text-left">
+                </div>
+                <div class="col-sm-2">
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/semovpoliusp/"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/semov.poliusp/"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/semov"><i class="fab fa-linkedin-square"></i></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer><!--/#footer-->
+    
+    <style type="text/css">
+                                               
+                                                </style>
+    <!--SCRIPT SLIDER
+    <script>
+        // Coloque todas as datas em ORDEM temporal
+        const init_events=["August 23, 2021 11:00:00","August 23, 2021 17:00:00","August 23, 2021 19:00:00","August 24, 2021 11:00:00","August 24, 2021 15:00:00","August 24, 2021 17:00:00","August 24, 2021 19:00:00","August 25, 2021 15:00:00","August 25, 2021 17:00:00","August 25, 2021 19:00:00","August 26, 2021 11:00:00","August 26, 2021 15:00:00","August 26, 2021 17:00:00","August 26, 2021 19:00:00","August 27, 2021 11:00:00","August 27, 2021 15:00:00","August 27, 2021 17:00:00","August 28, 2021 11:00:00","August 28, 2021 15:00:00"];
+        const brands_img=["images/logo empresas/timpel.png","images/logo empresas/oracle.png","images/logo empresas/Stockcar.png","images/logo empresas/MIT.png","images/logo empresas/AutoForm.png","images/logo empresas/ska.png","images/logo empresas/ABB.png","images/logo empresas/AutoForm.png","images/logo empresas/BTC.png","images/logo empresas/INPE.png","images/logo empresas/gm.png","images/logo empresas/accenture.png","images/logo empresas/ABB.png","images/logo empresas/Stanford.png","images/logo empresas/gm.png","images/logo empresas/siemens.png","images/logo empresas/BRASKEM.png","images/Logo - modificado.png","images/logo empresas/ESF.png"];
+        const end_events=["August 23, 2021 12:30:00","August 23, 2021 18:30:00","August 23, 2021 20:30:00","August 24, 2021 12:30:00","August 24, 2021 16:30:00","August 24, 2021 18:30:00","August 24, 2021 20:30:00","August 25, 2021 16:30:00","August 25, 2021 18:30:00","August 25, 2021 20:30:00","August 26, 2021 12:30:00","August 26, 2021 16:30:00","August 26, 2021 18:30:00","August 26, 2021 20:30:00","August 27, 2021 12:30:00","August 27, 2021 16:30:00","August 27, 2021 18:30:00","August 28, 2021 12:30:00","August 28, 2021 16:30:00"];
+
+        // Calcula qual evento deve ser usado como parâmetro
+        var i =0;
+        var event = new Date(init_events[i]).getTime();
+        var now = new Date().getTime();
+        var distance = event - now;
+
+        while(distance<0){
+            i=i+1;
+            var now = new Date().getTime();
+            var event = new Date(init_events[i]).getTime();
+            var distance = event - now;
+        }
+        var last_event_init = new Date(init_events[i-1]).getTime();
+        var last_event_end = new Date(end_events[i-1]).getTime();
+        
+        // Coloquea data do evento
+        var countDownDate = new Date(init_events[i]).getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        //
+        if(last_event_init<now && last_event_end>now){
+            var image =document.getElementById('brand_img_now');
+            image.src = brands_img[i-1];
+            document.getElementById("event_next1").style.display = "none";
+            var logo = "brand_img_next2"
+            var count= "Countdown2"
+            
+        }else{
+            
+            document.getElementById("event_next2").style.display = "none";
+            document.getElementById("event_now").style.display = "none";
+            document.getElementById("capa").style.visibility = "visible";
+            var logo = "brand_img_next1"
+            var count= "Countdown1"
+        }
+            
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+        
+        
+        // Time calculations for days, hours, minutes and seconds
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+         
+       
+        // Output the result in an element with id="demo"
+        document.getElementById(count).innerHTML =  hours + "h "
+        + minutes + "m "  + seconds + "s ";
+
+        var image = document.getElementById(logo);
+        image.src = brands_img[i];
+        
+        
+            
+        // If the count down is over, write some text 
+        if(distance<0){
+            location.reload();
+        }
+        }, 1000);
+                        
+    </script>-->
+
+    <script src="{% static 'semov/js/jquery.js' %}"></script>
+    <script src="{% static 'semov/js/bootstrap.min.js' %}"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="{% static 'semov/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'semov/js/mousescroll.js' %}"></script>
+    <script src="{% static 'semov/js/smoothscroll.js' %}"></script>
+    <script src="{% static 'semov/js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'semov/js/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'semov/js/jquery.inview.min.js' %}"></script>
+    <script src="{% static 'semov/js/wow.min.js' %}"></script>
+    <script src="{% static 'semov/js/main.js' %}"></script>
+</body>
+</html>

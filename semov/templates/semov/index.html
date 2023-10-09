@@ -1,0 +1,824 @@
+{% extends 'semov.html' %}
+{% load static %}
+{% block title %}
+Semana de Engenharia de Movimento
+{% endblock %}
+{% block logo %}
+
+{{ logo.imagem.url }}
+
+{% endblock %}
+
+{% block nav %}
+                    <div class="collapse navbar-collapse navbar-right col-xs-8" style="font-weight: 900; font-size: 0.9em;">
+                        <ul class="nav navbar-nav">
+                            <li class="scroll active"><a href="#home">Home</a></li>
+                            <li class="scroll"><a href="{% url 'semov_schedule' %}">Cronograma {{ inscricao.ano }}</a></li>
+                            <li class="scroll"><a href="#about">Sobre</a></li>
+                            <li class="scroll"><a href="#features">Estrutura</a></li>
+                            <li class="scroll"><a href="#work-process">Temas</a></li>
+                            <li class="scroll"><a href="#portfolio">Parceiros</a></li>
+                            <!-- <li class="scroll"><a href="#blog">Últimas Notícias</a></li> --> 
+                            <li class="scroll"><a href="#get-in-touch">Contato</a></li>
+                            <!-- habilitar apenas quando estiver disponivel-->
+                            <li class="scroll" ><a href='{{ inscricao.link }}' style="color:#9f0000;">Inscreva-se</a></li>
+                            
+
+                        </ul>
+                    </div>
+{% endblock %}
+{% block content %}
+<!-- CARROSEL PARA PREPARAÇÃO SEMOV
+    <section id="main-slider">
+        <div class="owl-carousel">      
+            <div class="item"  style="background: url(http://cam.poli.usp.br/semov/images/Template_Base.png); background-size: 100%;  width:100%;  height: fit-content;">
+                <img src="images/CapaEventoF02.png"  width="100%" style="visibility: hidden;" />
+                <div class="slider-inner" id="event_now" >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="carousel-content">
+                                    <section class="row-angular-text">
+                                        
+                                        <div class="n2">
+                                            <img src="" id="brand_img_now" width="100%"  alt="">    
+                                            
+                                        </div>
+                                        
+                                        <div class="n1 ">
+                                            <div class="col-number1" >
+                                                <span class="text_slide">
+                                                    Acontecendo agora!
+                                                </span>
+                                                <br><br>
+                                                <div class="">
+                                                    <a class="btn btn-primary btn-lg btn-block botao_slide" style="padding-left: 1em; padding-right: 1em;" href='https://painel.4.events/plenaria' target="_blank"><span class="fa fa-desktop"></span>  Assista  </a>                  
+                                                </div>                                                   
+                                            </div>
+                                        </div> 
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-inner" id="event_next1" >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="carousel-content">
+                                    <section class="row-angular-text">
+                                        
+                                        <div class="n2"> 
+                                            <img src="" id="brand_img_next1" width="100%"  alt="">
+                                        </div>
+                                        
+                                        <div class="n1 ">
+                                            <div class="col-number1" >
+                                                <span class="text_slide">
+                                                    Próximo evento em
+                                                </span>
+                                                <br><br><br>
+                                                <span id="Countdown1"></span>
+                                                <br><br>
+                                                <div class="">
+                                                    <a class="btn btn-primary btn-lg btn-block botao_slide" href='https://semov.4.events/nova-inscricao.html' target="_blank"><span class="fa fa-calendar"></span>  Inscreva-se  </a>                  
+                                                </div>                                                   
+                                            </div>
+                                        </div> 
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="item" style="background: url(http://cam.poli.usp.br/semov/images/Template_Base.png); background-size: 100%;  width:100%;  height: fit-content;">
+                <img id= "capa" src="images/CapaEventoF02.png"  width="100%" style="visibility: hidden;" />
+                <div class="slider-inner" id="event_next2" >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="carousel-content">
+                                    <section class="row-angular-text">
+                                        
+                                        <div class="n2"> 
+                                            <img src="" id="brand_img_next2" width="100%"  alt="">
+                                        </div>
+                                        
+                                        <div class="n1 ">
+                                            <div class="col-number1" >
+                                                <span class="text_slide">
+                                                    Próximo evento em
+                                                </span>
+                                                <br><br><br>
+                                                <span id="Countdown2"></span>
+                                                <br><br>
+                                                <div class="">
+                                                    <a class="btn btn-primary btn-lg btn-block botao_slide" href='https://semov.4.events/nova-inscricao.html' target="_blank"><span class="fa fa-calendar"></span>  Inscreva-se  </a>                  
+                                                </div>                                                   
+                                            </div>
+                                        </div> 
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> -->
+    </div>
+</div>
+</section>
+
+
+
+
+<section class="row-angular-text mobile" style="background-color: black; width: 100%; background-size: 100%;">
+<div>
+    <img src="{% static 'images/slider/capa_site.png' %}" style="width:100%;"  alt="">
+</div>
+
+</section>
+<!--SID<section id="cta2">
+<div class="container">
+<div class="row">
+    <div class="text-center">
+    <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">Faça sua <span>inscrição</span></h2>
+    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">Para participar de nossas atividades basta se inscrever clicando no link abaixo e preencher algumas informações.</p>
+    <br>
+    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"><a class="btn btn-secundary btn-lg" href="https://www.sympla.com.br/viii-semov---semana-de-engenharia-de-movimento__944337" style="float: inherit; color: white;">Inscrever-se</a></p>
+    <br>
+    <br>
+</div>
+</div>
+</section>-->
+<div class="item" style="background-image: url('{{ capa.imagem.url }}') ">
+<div class="slider-inner" style="background-color: rgba(200, 200, 200, 0); height: 40em; display: flex; align-items: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="carousel-content">
+                    <section class="row-angular-text">
+                        <div class="n2">
+                            <div>
+                            <img class="gear"src="images/Logo - modificado.png" width="400em"  alt="">
+                           </div>
+                            
+                        </div>
+                        <div class="n1 ">
+                            <div class="col-number" >
+                                <span class="number" style="color: slategray;">
+                                    {{ capa.dias }}
+                                </span>
+                            </div>          
+                        </div>
+                        <div class="text tx2">
+                            <span style="color: slategray;">
+                                <u>  Dias &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</u>
+                            </span>
+                
+                        </div>
+                        <div class="n1 ">
+                            <div class="col-number" >
+                                <span class="number" style="color: slategray;">
+                                    {{ capa.empresas }}
+                                </span>
+                            </div>          
+                        </div>
+                        <div class="text tx3">
+                            <span style="color: slategray;">
+                                <u>Empresas</u>
+                            </span>
+                
+                        </div>
+                        <div class="n1 ">
+                            <div class="col-number" >
+                                <span class="number" style="color: slategray;">
+                                    {{ capa.eventos }}
+                                </span>
+                            </div>          
+                        </div>
+                        <div class="text tx4 ">
+                            <span style="color: slategray;">
+                                <u>Eventos</u>
+                            </span>
+                        </div>                     
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="main-slider">
+<div class="owl-carousel">
+    <div class="item" style="background-image: url(images/slider/Capa_site.png);">
+        <div class="slider-inner">
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url(images/slider/palestras.jpg);">
+        <div class="slider-inner" style="background-color: rgba(200, 200, 200, 0.5)">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="carousel-content">
+                            <h2>
+                            <br>
+                            <br>
+                            <span>Palestras e mesas redondas</span><br>com grandes empresas
+                            <br>
+                            <br>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url(images/slider/bg7.jpg);">
+        <div class="slider-inner" style="background-color: rgba(200, 200, 200, 0.4)">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="carousel-content">
+                            <h2>
+                            <br>
+                            <br>
+                            <span>Workshops e Cases</span>
+                            <br>
+                            <br>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url(images/slider/bg6.jpg);">
+        <div class="slider-inner" style="background-color: rgba(200, 200, 200, 0.4)">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="carousel-content">
+                            <h2>
+                            <br>
+                            <br>
+                            <span>Visitas Técnicas</span>
+                            <br>
+                            <br>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url(images/slider/brindes.jpg);">
+        <div class="slider-inner" style="background-color: rgba(200, 200, 200, 0.4)">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="carousel-content">
+                            <h2>
+                            <br>
+                            <br>
+                            <span>Brindes</span>
+                            <br>
+                            <br>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item" style="background-image: url(images/slider/bg3.jpg);">
+        <div class="slider-inner" style="background-color: rgba(200, 200, 200, 0.4)">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="carousel-content">
+                            <h2>
+                            <br>
+                            <br>
+                            <span>Coffee Break</span><br>após palestras
+                            <br>
+                            <br>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="cta" class="wow fadeIn">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 alinha">
+            <h2>Semana de Engenharia de Movimento</h2>
+            <p>
+                A Semana de Engenharia de Movimento é um evento acadêmico anual organizado pelo Centro Acadêmico Mecânica e Mecatrônica (CAM Poli USP) que busca complementar a formação dos alunos, promover o contato entre aluno e empresa e preparar os engenheiros para o mercado de trabalho. O evento conta com diferentes atividades ao longo da semana, que aproximam os alunos das novidades dentro do mundo da engenharia.
+                
+            </p>
+        </div>
+        <div class="col-sm-2 text-right">
+            <a class="btn btn-primary btn-lg btn-block" href="https://www.facebook.com/semovpoliusp" target="_blank"><span class="fab fa-facebook"></span>    Facebook</a>
+            <a class="btn btn-primary btn-lg btn-block" href="https://www.instagram.com/semov.poliusp/" target="_blank"><span class="fab fa-instagram"></span>    Instagram</a>
+            <a class="btn btn-primary btn-lg btn-block" href="https://www.linkedin.com/company/semov" target="_blank"><span class="fab fa-linkedin-square"></span>    LinkedIn</a>
+            <a class="btn btn-primary btn-lg btn-block" href="{{ inscricao.link }}" target="_blank"><span class="fab"></span>Inscreva-se</a>
+        </div>
+    </div>
+</div>
+</section><!--/#cta-->
+
+<section id="about">
+<div class="container">
+  <div class="section-header">
+    <h2 class="section-title text-center wow fadeInDown">Sobre nós</h2>
+    <p class="text-center wow fadeInDown">A Semov tem o intuito de melhor aproximar o aluno ao mercado de trabalho, além de torná-lo um profissional melhor capacitado</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 wow fadeInLeft">
+      <h2 class="column-title">MVV</h2>
+      <h4>Missão</h4><p>- Ser o elo entre alunos, empresas e sociedade.</p>
+      <h4>Visão</h4><p>- Mobilizar pessoas almejando impactar suas trajetórias e carreiras.</p>
+      <h4>Valores</h4><p>- Conexão, Inovação, Inclusão</p>
+      <hr>
+      <div class="row">
+          <div class="col-sm-6">
+              <ul class="nostyle">
+                  <li><i class="fa fa-check-square"></i> Complementar a formação acadêmica</li>
+                  <li><i class="fa fa-check-square"></i> Contato com ex-alunos e engenheiros formados</li>
+              </ul>
+          </div>
+              <div class="col-sm-6">
+                  <ul class="nostyle">
+                      <li><i class="fa fa-check-square"></i> Aproximação com as empresas</li>
+                      <li><i class="fa fa-check-square"></i> Entendimento do dia a dia no mercado de trabalho</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-sm-6 wow fadeInRight">
+          <h3 class="column-title">Organização</h3>
+          <img class="img-responsive" src="images/equipe20192.jpeg" alt="">
+      </div>
+            
+  </div>
+</div>
+</section>
+
+<section id="meet-team">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-offset-0">
+            <h3 class="column-title">História</h3>
+            <div role="tabpanel">
+                <ul class="nav main-tab nav-justified historia" role="tablist" style="overflow: auto;">
+                    {% for edicao in edicoes %}
+                    <li role="presentation" class="{% if forloop.first %}active{% endif %}">
+                        <a href="#tab{{ edicao.id }}" role="tab" data-toggle="tab" aria-controls="tab{{ edicao.id }}" aria-expanded="true">{{ edicao.ano }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div id="tab-content" class="tab-content">
+                    {% for edicao in edicoes %}
+                    <div role="tabpanel" class="tab-pane fade {% if forloop.first %}active in{% endif %}" id="tab{{ edicao.id }}" aria-labelledby="tab{{ edicao.id }}">
+                        {{ edicao.descricao|linebreaksbr }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-offset-0">
+            <!--<h3 class="column-title">Organização</h3>-->
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                CAM
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <p>O CAM, Centro Acadêmico Mecânica e Mecatrônica, consiste na entidade responsável por representar todos os alunos dos cursos Mecânica e Mecatrônica. Além de tal representação, o CAM promove diversos projetos acadêmicos e socioculturais e oferece um espaço de conforto durante a rotina politécnica.</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                EPUSP
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <p>Há mais de um século, a Escola Politécnica da Universidade de São Paulo (EPUSP) vem formando gerações de engenheiros que têm se destacado não só em suas especialidades profissionais, mas também na vida política do País e na administração de empresas e de órgãos públicos.</p>  
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                USP
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            <p>A Universidade de São Paulo (USP) é uma universidade pública, autarquia ligada à Secretaria de Estado de Desenvolvimento Econômico, Ciência e Tecnologia. O talento e dedicação dos docentes, alunos e funcionários têm sido reconhecidos por diferentes rankings mundiais, criados para medir a qualidade das universidades a partir de diversos critérios, principalmente os relacionados à produtividade científica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section><!--/#meet-team-->
+<section id="cta2">
+<div class="container">
+  <div class="row">
+      <div class="text-center">
+      <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">Confira o <span>cronograma</span> de {{ inscricao.ano }}</h2>
+      <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">Os eventos serão atualizados automaticamente de acordo com sua divulgação.</p>
+      <br>
+      <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"><a class="btn btn-primary btn-lg" href="http://cam.poli.usp.br/semov/schedule.html"><span class="fa fa-calendar"></span>    Cronograma</a></p>
+      <br>
+      <br>
+  </div>
+</div>
+</section>
+
+
+<section id="features">
+<div class="container">
+    <div class="section-header">
+        <h2 class="section-title text-center wow fadeInDown">Estrutura da Semana</h2>
+        <p class="text-center wow fadeInDown">A semana conta com atividades variadas para que o público não só conheça as empresas participantes, mas também desenvolva algumas habilidades nos campos técnico e profissional</p>
+    </div>
+    <div class="row_img_gear">
+        <div class="col-sm-6 col">
+            <div class="media service-box wow fadeInRight col">
+                <div class="pull-left">
+                    <i class="fa fa-line-chart"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Palestras</h4>
+                    <p class="estrutura">Têm caráter expositivo e/ou informativo, com temas que abordem conhecimentos gerais necessários ou complementares à formação do aluno</p>
+                </div>
+            </div>
+
+        
+            <div class="media service-box wow fadeInRight col">
+                <div class="pull-left">
+                    <i class="fa fa-cubes"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Visitas Técnicas</h4>
+                    <p class="estrutura">O foco é apresentar aos alunos o cotidiano das grandes empresas e o ambiente de trabalho do engenheiro</p>
+                </div>
+            </div>
+
+            <div class="media service-box wow fadeInRight col">
+                <div class="pull-left">
+                    <i class="fa fa-area-chart"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Minicursos</h4>
+                    <p class="estrutura">Consistem no detalhamento de determinado assunto ou conjunto de temas com caráter técnico-profissional</p>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="col-sm-6 wow fadeInLeft col2">
+            <img class="img-responsive estrutura1" src="images/main-feature.png" alt="">
+        </div>
+        <div class="col-sm-6 col">
+            <div class="media service-box wow fadeInRight col">
+                <div class="pull-left">
+                    <i class="fa fa-pie-chart"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading ">Workshops</h4>
+                    <p class="estrutura">Objetiva-se aprofundar em um determinado assunto de maneira mais prática. A dinâmica da sessão divide-se em três momentos: exposição, discussão em grupos ou equipe e conclusão</p>
+                </div>
+            </div>
+
+
+
+            <div class="media service-box wow fadeInRight col">
+                <div class="pull-left">
+                    <i class="fas fa-briefcase"></i>                        
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Resolução de Case</h4>
+                    <p class="estrutura">Busca trazer aos alunos problemas reais, que são apresentados pelas empresas participantes.</p>
+                </div>
+            </div>
+
+            <div class="media service-box wow fadeInRight col">
+                <div class="pull-left">
+                    <i class="fas fa-address-card"></i>                        
+                </div>
+                <div class="media-body ">
+                    <h4 class="media-heading">Processos Seletivos</h4>
+                    <p class="estrutura">Caso seja de interesse da empresa, podem ser ofertadas vagas de estágio, trainee ou até mesmo efetivas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<section id="work-process">
+<div class="container">
+<div class="section-header">
+  <h2 class="section-title text-center wow fadeInDown ">Temas</h2>
+  <p class="text-center wow fadeInDown">A Semov busca abranger os mais variados temas relacionados às engenharias mecânica e mecatrônica e ao mercado de trabalho visado por engenheiros.
+</p>
+</div>
+<div class="row justify-content-around text-center tema">
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+      <div class="icon-circle"> <i class="fa fa-graduation-cap fa-2x"></i> </div>
+      <h3>Carreira Acadêmica</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+      <div class="icon-circle"> <i class="fa fa-suitcase fa-2x"></i> </div>
+      <h3>Consultoria</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
+      <div class="icon-circle"> <i class="fa fa-car fa-2x"></i> </div>
+      <h3>Automotiva</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+      <div class="icon-circle"> <i class="fa fa-plane fa-2x"></i> </div>
+      <h3>Aeronáutica</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+      <div class="icon-circle"> <i class="fa fa-cogs fa-2x"></i> </div>
+      <h3>Mecatrônica</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+      <div class="icon-circle"> <i class="fa fa-flask fa-2x"></i> </div>
+      <h3>Biomédica</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+      <div class="icon-circle"> <i class="fa fa-lightbulb-o fa-2x"></i> </div>
+      <h3>Empre&shy;endedo&shy;rismo</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+      <div class="icon-circle"> <i class="fas fa-battery-full fa-2x"></i> </div>
+      <h3>Energia</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+      <div class="icon-circle"> <i class="fas fa-coins fa-2x"></i> </div>
+      <h3>Financeiro</h3>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-4 col-xs-6">
+    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+      <div class="icon-circle"> <i class="fa fa-plus fa-2x"></i> </div>
+      <h3>Outros</h3>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!--/#services-->
+<!--
+<section id="portfolio2">
+<div class="container">
+    <div class="section-header">
+        <h2 class="section-title text-center wow fadeInDown">Patrocinadores</h2>
+        <p class="text-center wow fadeInDown">Estes foram os patrocinadores da última edição, a IX Semov.</p>
+    </div>
+
+    <div class="portfolio2-items">
+        <div class="portfolio2-item creative">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive" src="images/logo empresas/ABB_Logo_Screen_RGB_33px_black_@1x.png" alt="">
+                <div class="portfolio-info">
+                    <h3>Ambev</h3>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio2-item corporate">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive" src="images/logo empresas/AutoForm.JPG" alt="">
+                <div class="portfolio-info">
+                    <h3>Big Data</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="portfolio2-item corporate">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive" src="images/logo empresas/BRASKEM.jpg" alt="">
+                <div class="portfolio2-info">
+                    <h3>Siemens</h3>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio2-item corporate">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive" src="images/logo empresas/BTC.png" alt="">
+                <div class="portfolio-info">
+                    <h3>Siemens Energy</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio2-item corporate">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive" src="images/logo empresas/CIESP.png" alt="">
+                <div class="portfolio-info">
+                    <h3>Siemens Energy</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio2-item corporate">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive" src="images/logo empresas/siemens.png" alt="">
+                <div class="portfolio-info">
+                    <h3>Siemens Energy</h3>
+                </div>
+            </div>
+        </div>
+
+        
+            <div class="portfolio-item-inner">
+                <img class="img-responsive" src="images/logo empresas/SKA.png" alt="">
+                <div class="portfolio-info">
+                    <h3>Siemens Energy</h3>
+                </div>
+            </div>
+        
+    </div>
+</div>
+-->
+<section id="portfolio"><!--/#portfolio Parceiros-->
+<div class="container">
+    <div class="section-header">
+        <h2 class="section-title text-center wow fadeInDown">Patrocinadores</h2>
+        <p class="text-center wow fadeInDown ">Estes são os patrocinadores desta edição.</p>
+    </div>
+    <div class="portfolio-items1">
+        {% for patrocinador in patrocinadores %}
+        <a href="{{ patrocinador.link }}">
+            <div class="portfolio-item corporate portfolio">
+                <div class="portfolio-item-inner">
+                    <img class="img-responsive3" src="{{ patrocinador.imagem.url }}">
+                    <div class="portfolio-info">
+                        <h3 class="portifolio">{{ patrocinador.nome }}</h3>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div><!--/.container-->
+</section><!--/#portfolio-->
+
+<section id="portfolio"><!--/#portfolio Apoio Institucional-->
+<div class="container">
+    <div class="section-header">
+        <h2 class="section-title text-center wow fadeInDown">Apoio Institucional</h2>
+        <p class="text-center wow fadeInDown">Algumas entidades que apoiaram a realização da última edição da Semana.</p>
+    </div>
+
+    <div class="portfolio-items1">
+        
+
+        <a href="https://www5.usp.br/"><div class="portfolio-item corporate portfolio">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive3" src="{% static 'semov/images/portfolio/logo_usp.png' %}"  alt="">
+                <div class="portfolio-info">
+                    <h3 class="portifolio">Universidade de São Paulo</h3>
+
+                </div>
+            </div>
+        </div><!--/.portfolio-item--></a>
+
+        <a href="http://www.pmr.poli.usp.br/"><div class="portfolio-item creative">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive3" src="{% static 'semov/images/portfolio/logo_pmr.png' %}" alt="">
+                <div class="portfolio-info">
+                    <h3 class="portifolio">PMR</h3>
+                    Departamento de Engenharia Mecatrônica
+                </div>
+            </div>
+        </div>
+
+        <a href="http://www.pme.poli.usp.br/"><div class="portfolio-item creative">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive3" src="{% static 'semov/images/portfolio/logo_pme.png' %}" alt="">
+                <div class="portfolio-info">
+                    <h3 class="portifolio">PME</h3>
+                    Departamento de Engenharia Mecânica
+                </div>
+            </div>
+        </div></a>
+
+        <a href="https://www.poli.usp.br/"><div class="portfolio-item creative">
+            <div class="portfolio-item-inner">
+                <img class="img-responsive3" src="{% static 'semov/images/portfolio/logo_poli.png' %}" alt="">
+                <div class="portfolio-info">
+                    <h3 class="portifolio">Escola Politécnica</h3>
+                    
+                </div>
+            </div>
+        </div></a>
+
+        
+    </div>
+</div><!--/.container-->
+</section><!--/#portfolio-->
+
+<section id="work-process">
+<div class="container">
+    <div class="section-header">
+        <h2 class="section-title text-center wow fadeInDown">Localização e Contato</h2>
+    </div>
+</div>
+</section><!--/#get-in-touch-->
+
+
+<section id="contact">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7314.695758852356!2d-46.7272329153982!3d-23.55594618970814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5617f611fdeb%3A0x3417ccf5fc732a4c!2sCAM%20-%20Centro%20Acad%C3%AAmico%20Mec%C3%A2nica%20e%20Mecatr%C3%B4nica!5e0!3m2!1spt-BR!2sbr!4v1594693099671!5m2!1spt-BR!2sbr" width="100%" height="650" frameborder="0" style="border:0" allowfullscreen="" aria-hidden="true" tabindex="0"></iframe>
+<div class="container-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-8">
+                <div class="contact-form">
+                    <h3>Contato</h3>
+
+                    <address>
+                        <strong>CAM POLI - USP</strong><br>
+                        Av. Prof. Melo Moraes, 2231 — Cidade Universitária, São Paulo - SP<br>
+                        CEP: 05508-030<br>
+                    </address>
+
+                    <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
+        <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Nome" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="subject" class="form-control" placeholder="Assunto" required>
+        </div>
+        <div class="form-group">
+            <textarea name="message" class="form-control" rows="8" placeholder="Mensagem" required></textarea>
+        </div>
+            <button type="submit" class="btn btn-primary" >Enviar Mensagem</button>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section><!--/#bottom-->
+{% endblock %}

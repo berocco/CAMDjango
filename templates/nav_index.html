@@ -1,0 +1,21 @@
+{% load static %}
+{% block nav %}
+  <ul>
+    <li class="{% if request.path == '/' %} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
+    <li class="{% if request.path == '/historia' %} active {% endif %}"><a href="{% url 'historia' %}">História</a></li>
+    <!--
+    <li class='drop-down'><a href="">Quem somos</a>
+      <ul>
+        <li><a href="team.html">Carômetro</a></li>
+        <li><a href="diretoria.html">Diretorias</a></li>
+      </ul>
+    </li>
+    -->
+    <li class="{% if request.path == '/carometro' %} active {% endif %}"><a href="{% url 'carometro' %}">Carômetro</a></li>
+    <li class="{% if request.path == '/diretorias' %} active {% endif %}"><a href="{% url 'diretorias' %}">Diretorias</a></li>
+    <li><a href="{% url 'semov_index' %}">Semov</a></li>
+    <li class="{% if request.path == '/faq' %} active {% endif %}"><a href="{% url 'faq' %}">FAQ</a></li>
+    <li class="{% if request.path == '/contato' %} active {% endif %}"><a href="{% url 'contato' %}">Contato</a></li>
+
+  </ul>
+{% endblock %}

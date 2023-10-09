@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Estágios
+{% endblock %}
+{% block nav %}
+<ul>
+    <li><a href="#"><h1>Estágios</h1></a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="row">    
+    {% for vaga in vaga_list %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ vaga.titulo }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Empresa: {{ vaga.empresa }}</h6>
+                <p class="card-text">{{ vaga.descricao }}</p>
+                <strong>Inscrição: </strong> {{ vaga.inscricao }}
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      {% for tag in vaga.tags.all %}
+                      <a href="#" class="btn btn-sm btn-outline-secondary"><i class="icofont-tag"></i>{{ tag.nome }}</a>
+                      {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,265 @@
+.text-{
+    color:#64686d;
+    writing-mode:vertical-lr;
+    font-size:2em;
+}
+.n1{
+    width:fit-content;
+    padding-right: 1%;
+    display: flex;
+    align-items: center;
+    margin-top: 2em;
+    
+}
+.n2{
+    width:50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.col-number1{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    flex-direction: column;
+    align-items: center;
+}
+.col-number{
+    width: fit-content;
+}
+.tx1{
+    transform: translateY(1em);
+    padding-right: 1.5em;
+}
+.tx2{
+    transform: translateY(1.3em);
+    padding-right: 1.5em;
+}
+.tx3{
+    transform: translateY(0.7em);
+    padding-right: 1.5em;
+}
+.tx4{
+    transform: translateY(0.3em);
+}
+
+.text{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    writing-mode:vertical-lr;
+    font-size:2em;
+    
+}
+.capa_data_2021{
+    background:url("/images/capa_data_2021");
+}
+.row-angular-text{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    
+}
+.number{
+    align-items: flex-end;
+    color: white;
+    font-weight: bold;
+    font-size:7em;
+}
+
+.desktop {
+    display: flex;
+}
+.mobile {
+    display: none;
+}
+
+@media(max-width: 480px) {
+    .slideshow-container{
+        display: none;
+    }
+    .desktop{
+        display: none;
+    }
+    #main-slider{
+        display: none;
+    }
+    .mobile {
+        display: flex; /* ou inline, inline-block */
+    }
+    .row-angular-text{
+        height: auto;
+    }
+    .alinha{
+        text-align:center;
+    }
+    .tema{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .estrutura{
+        display: none;
+    }
+    .estrutura1{
+        display: none;
+    }
+    .portifolio{
+        display: none;
+    }
+    .row_img_gear{
+        justify-content: center;
+    }
+    .col{
+        width: 30%;
+    }
+    .col2{
+        width: 30%;
+    }
+    #features .media.service-box:first-child {
+        margin-top:0;
+    }
+    #features{
+        padding: 50px 0;
+    }
+    #about {
+        padding: 50px 0;
+    }
+    body {
+        padding-top: 0px;
+        background: #fff;
+        font-family: Bahnschrift Light, sans-serif;
+        font-weight: 200;
+        font-size: 14px;
+        color: #64686d;
+        line-height: 26px;
+    }
+    #portfolio {
+        padding: 50px 0;  
+    }
+    .historia{
+        display: flex;
+    }
+    
+}
+
+
+@media(max-width: 768px){
+    .slideshow-container{
+        display: none;
+    }
+    .desktop{
+        display: none;
+    }
+    #main-slider{
+        display: none;
+    }
+    .mobile {
+        display: flex; /* ou inline, inline-block */
+    }
+    #portfolio {
+        padding: 50px 0;  
+    }
+    .logo{
+        height: auto;
+    }
+  
+    .estrutura1{
+        display: none;
+    }
+    .col2{
+        width: 0%;
+    }
+    #portfolio .portfolio-item {
+        width: 50%;
+        float: left;
+        padding: 15px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .row1{
+        display: none;
+    }
+}
+@media(max-width: 1024px) {
+
+    .gear{
+        width: 15em;
+    }
+    .row1{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .text-{
+        color:#64686d;
+        writing-mode:vertical-lr;
+        font-size:1.5em;
+    }
+    .n1{
+        width:fit-content;
+        padding-right: 1%;
+        display: flex;
+        align-items: center;
+        margin-top: 2em;
+        
+    }
+    .n2{
+        width:50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .col-number{
+        width: fit-content;
+    }
+    .tx1{
+        transform: translateY(1em);
+        padding-right: 1.5em;
+    }
+    .tx2{
+        transform: translateY(1.3em);
+        padding-right: 1.5em;
+    }
+    .tx3{
+        transform: translateY(0.7em);
+        padding-right: 1.5em;
+    }
+    .tx4{
+        transform: translateY(0.3em);
+    }
+    
+    .text{
+        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: white;
+        writing-mode:vertical-lr;
+        font-size:1.2em;        
+    }
+    .number{
+        align-items: flex-end;
+        color: white;
+        font-weight: bold;
+        font-size:5.0em;
+    }
+    .logo{
+        height:4em;
+    }
+
+}
+.port{
+    border-top: 2px solid #9f0000
+}
+  
+

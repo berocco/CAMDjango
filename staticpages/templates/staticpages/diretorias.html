@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Diretorias{% endblock %}
+{% block nav %}
+{% include 'nav_index.html' %}
+{% endblock %}
+{% block content %}
+<main id="main">
+    <!-- ======= Diretoria Section ======= -->
+    <!-- ======= Fotos 160x160 px  ======= -->
+    <section id="team" class="team section-bg" style="padding-bottom: 30px;">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2><strong>Diretorias</strong></h2>
+          <p>Com a finalidade de melhorar a administração do nosso querido CAM, a gestão é dividida em Diretorias. Cada uma delas é responsável por um ou mais processos e tarefas dentro da gestão. Conheça cada uma delas abaixo!</p>
+        </div>
+      </div>
+    </section>
+    <section id="diretoria" class="diretoria section-bg" style="padding-top: 0px;">
+      <div class="container">
+        <div class="row">
+        {% for diretoria in diretoria_list %}
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="diretoria-item mt-4">
+              <img src="{{ diretoria.imagem.url }}" class="diretoria-img" alt="imagem representando a {{ diretoria.nome }}">
+              <h3>{{ diretoria.nome }}</h3>
+            {{ diretoria.descricao }}
+          </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section><!-- End diretoria Section -->
+
+  </main><!-- End #main -->
+{% endblock %}
